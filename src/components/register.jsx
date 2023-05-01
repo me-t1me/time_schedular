@@ -60,41 +60,43 @@ export const Register = (props) => {
     }
 
     return (
-        <div className="auth-form-container">
-            <ToastContainer position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
-            <h2 className="header">Register</h2>
-            <form className="register-form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
-                <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="full Name" required/>
-                <label htmlFor="email" required>Email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
-                <label htmlFor="password">Password</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" required />
-                <label htmlFor="repassword">Re-enter Password</label>
-                <input value={repass} onChange={(e) => setRepass(e.target.value)} type="password" placeholder="********" id="repassword" name="repassword" required />
-                <label htmlFor="type">Role</label>
-                <select
-                type="type"
-                required
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                >
-                    <option value="">Please choose a role</option>
-                    <option value="student">student</option>
-                    <option value="staff">staff</option>
-                </select>
-                <button type="submit">Log In</button>
-            </form>
+        <div className = "body">
+            <div className="auth-form-container">
+                <ToastContainer position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
+                <h2 className="header">Registeration</h2>
+                <form className="register-form" onSubmit={handleSubmit}>
+                    <label htmlFor="name">Name</label>
+                    <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="Enter your full name" required/>
+                    <label htmlFor="email" required>Email</label>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="Enter your email" id="email" name="email" required />
+                    <label htmlFor="password">Password</label>
+                    <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" required />
+                    <label htmlFor="repassword">Re-enter Password</label>
+                    <input value={repass} onChange={(e) => setRepass(e.target.value)} type="password" placeholder="********" id="repassword" name="repassword" required />
+                    <label htmlFor="type">Role</label>
+                    <select
+                    type="type"
+                    required
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    >
+                        <option value="">Please choose a role</option>
+                        <option value="student">Student</option>
+                        <option value="staff">Staff</option>
+                    </select>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
         </div>
     )
 }

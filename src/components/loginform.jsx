@@ -98,29 +98,30 @@ const LoginForm = () => {
         return < Navigate to="/" />
     }
     return (
-        <div className="cover">
-            <ToastContainer position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
-            <h1>Login</h1>
-            <input type="text" placeholder="username" onChange={(e) => setEmail(e.target.value)}/>
-            <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
+        <div className = "body">
+            <div className="cover">
+                <ToastContainer position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
+                <h1 className="header">Login</h1>
+                <input type="text" placeholder="Enter your username" onChange={(e) => setEmail(e.target.value)}/>
+                <input type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)}/>
 
-            <div className="login-btn" onClick={popup}>Login</div>
+                <div className="login-btn" onClick={popup}>Login</div>
 
-            <div className="alt-login">
-                <div className="google" onClick={() => login()}></div>
-                <div className="login-btn-reg" >Register</div>
+                <div className="alt-login">
+                    <div className="google" onClick={() => login()}></div>
+                    <div className="login-btn-reg" >Register</div>
+                </div>  
             </div>
-            
         </div>
     )
 }

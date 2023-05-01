@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
 .auth-form-container {
     text-align: center;
     display: flex;
@@ -7,10 +16,16 @@
     justify-content: center;
     background-color: white;
     box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+    background: white;
 }
 
 .header {
     padding: 1rem;
+    font-size: 40px;
+    font-weight: 600;
+    position: relative;
+    font-family: 'Poppins',sans-serif;
+    
 }
 
 .auth-form-container,
@@ -18,12 +33,27 @@
 .register-form {
     display: flex;
     flex-direction: column;
+    font-family: 'Poppins',sans-serif;
+    margin-top: 20px;
+}
+
+.auth-form-container .header::before{
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0;
+    height: 3px;
+    /* width: 280px; */
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
 .register-form {
     justify-content: center;
     align-items: center;
     width: 80%;
+    font-family: 'Poppins',sans-serif;
 }
 
 @media screen and (min-width: 600px) {
@@ -49,13 +79,17 @@ input {
 
 button {
     margin-top: 2rem;
+    color: white;
     border: none;
-    background-color: wheat;
+    font-weight: 8000;
+    font-size:large;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
     box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
     width: 40%;
+    font-family: 'Poppins',sans-serif;
 }
 
 select {
@@ -65,4 +99,5 @@ select {
     border-radius: 10px;
     width: 80%;
     cursor: pointer;
+    font-family: 'Poppins',sans-serif;
 }
