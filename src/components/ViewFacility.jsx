@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import SlotBooking from './SlotBooking';
-import SlotTable from './SlotTable';
-import FacilityAdd from './FacilityAdd';
-import Calender from './Calender';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import Calender from './Calender';
+import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const AdminDashboard = () => {
+const ViewFacility = () => {
   const [event, setEvent] = useState([])
+  const [name, setName] = useState("")
+  const {id} = useParams();
+// const id = props.match.params.id
     useEffect(() => {
     
         let config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: 'http://localhost:8080/user/'+localStorage.getItem("id"),
-        headers: { 
-            'Content-Type': 'application/json'
-        },
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: 'http://localhost:8080/space/'+id,
+            headers: { }
         };
+        console.log(config)
+        
         axios.request(config)
         .then((response) => {
+        setName(response.data.name)
         let slots = response.data.slots;
         let i = 1;
         let result = []
@@ -89,16 +93,28 @@ const AdminDashboard = () => {
         .catch((error) => {
         console.log(error);
         });
+        
+            
+
     }, [])
   return (
-    <>
+   <div className='container'>
+     <ToastContainer position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
+    <h1>Viewing... {name}</h1>
     <div className='user'><Calender Events={event}/></div>
-     <SlotBooking />
-   <SlotTable Events={event}/>
-    < FacilityAdd/>
-    </>
+    </div>
     
   )
 }
 
-export default AdminDashboard
+export default ViewFacility

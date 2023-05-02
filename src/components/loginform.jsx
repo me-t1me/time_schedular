@@ -11,6 +11,7 @@ const LoginForm = () => {
     const [logedin, setLogedin] = useState(false)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [reg, setReg] = useState(false);
     function getToken(user){
         if (user) {
             const id = toast.loading("Please wait...")
@@ -96,29 +97,21 @@ const LoginForm = () => {
 
     if (logedin) {
         return < Navigate to="/" />
+    } if(reg) {
+        return < Navigate to="/register" />
     }
     return (
         <div className="cover">
-            <ToastContainer position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
+           
             <h1>Login</h1>
-            <input type="text" placeholder="username" onChange={(e) => setEmail(e.target.value)}/>
-            <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
+            <input value={email} type="text" placeholder="username" onChange={(e) => setEmail(e.target.value)}/>
+            <input value={password} type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
 
             <div className="login-btn" onClick={popup}>Login</div>
 
             <div className="alt-login">
                 <div className="google" onClick={() => login()}></div>
-                <div className="login-btn-reg" >Register</div>
+                <div className="login-btn-reg" onClick={() => setReg(true)} >Register</div>
             </div>
             
         </div>

@@ -93,7 +93,7 @@ export const Register = (props) => {
                     <option value="student">student</option>
                     <option value="staff">staff</option>
                 </select>
-                <button type="submit">Log In</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )

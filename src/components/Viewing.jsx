@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import SlotBooking from './SlotBooking';
-import SlotTable from './SlotTable';
-import FacilityAdd from './FacilityAdd';
-import Calender from './Calender';
-import axios from 'axios';
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import Calender from './Calender'
+import './UserDashboard.css'
+import { useParams } from 'react-router-dom'
 
-const AdminDashboard = () => {
-  const [event, setEvent] = useState([])
+
+const Viewing = () => {
+   const [event, setEvent] = useState([])
+   const [name, setName] = useState("")
+   const {id} = useParams()
     useEffect(() => {
     
         let config = {
         method: 'get',
         maxBodyLength: Infinity,
-        url: 'http://localhost:8080/user/'+localStorage.getItem("id"),
+        url: 'http://localhost:8080/user/'+id,
         headers: { 
             'Content-Type': 'application/json'
         },
         };
         axios.request(config)
         .then((response) => {
+        setName(response.data.name)
         let slots = response.data.slots;
         let i = 1;
         let result = []
@@ -91,14 +94,12 @@ const AdminDashboard = () => {
         });
     }, [])
   return (
-    <>
+    <div className='container'>
+    <h1>Viewing... {name}</h1>
     <div className='user'><Calender Events={event}/></div>
-     <SlotBooking />
-   <SlotTable Events={event}/>
-    < FacilityAdd/>
-    </>
+    </div>
     
   )
 }
 
-export default AdminDashboard
+export default Viewing
